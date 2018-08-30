@@ -13,5 +13,14 @@ pipeline {
             	}
 			}
 		}
+		
+		stage('Build & Push Docker Image'){
+			steps {
+                echo "----------Building LATEST docker image----------"
+
+                    sh "docker build -t ${PROJ_NAME}:${env.BUILD_NUMBER} ."
+                    sh "docker image tag ${PROJ_NAME}:${env.BUILD_NUMBER} ${PROJ_NAME}:latest"
+            }
+		}
 	}
 }
