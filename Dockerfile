@@ -1,10 +1,17 @@
+# Use an official Python runtime as a parent image
 FROM maven:slim
 
-WORKDIR /var/jenkins_home/workspace/Project1
+# Set the working directory to /
+WORKDIR /
 
-COPY . ./
+# Copy the current directory contents into the container at /
+ADD . /
+
+# Install any needed packages specified in requirements.txt
 RUN pwd
-RUN ls -ltr ./
+RUN ls -ltr /
+
+
 
   
 
