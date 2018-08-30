@@ -19,7 +19,6 @@ pipeline {
                 echo "----------Building LATEST docker image----------"
 
                     sh "docker build -t ${PROJ_NAME}:${env.BUILD_NUMBER} ."
-                    sh "docker image tag ${PROJ_NAME}:${env.BUILD_NUMBER} ${PROJ_NAME}:latest"
             }
 		}
 	}
